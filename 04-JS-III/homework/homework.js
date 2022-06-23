@@ -229,22 +229,40 @@ function mesesDelAño(array) {
     //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
     // Tu código:
     var n_array = [];
-    i = 0;
+    sw = 0;
     if (array.length === 0) {
         return 'No se encontraron los meses pedidos';
     } else {
-        do {
-            i++;
+        for (var i = 0; i < array.length; i++) {
+            if (array[i].toLowerCase() === 'enero' || array[i].toLowerCase() === 'marzo' || array[i].toLowerCase() === 'noviembre') {
+                n_array[sw] = array[i];
+                sw = sw + 1;
+            }
+        }
+        if (n_array.length === 3) {
+            return n_array;
+        } else {
 
-        } while (n_array.length < array.length);
+            return 'No se encontraron los meses pedidos';
+        }
     }
 }
+
 
 
 function mayorACien(array) {
     //La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
     //valores mayores a 100 (no incluye el 100). Finalmente devolver el nuevo array.
     // Tu código:
+    var n_array = [];
+    var sw = 0;
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] > 100) {
+            n_array[sw] = array[i];
+            sw = sw + 1;
+        }
+    }
+    return n_array;
 }
 
 
@@ -256,6 +274,21 @@ function breakStatement(numero) {
     //devolver: "Se interrumpió la ejecución"
     //Pista: usá el statement 'break'
     // Tu código:
+    var n_array = [];
+    var sw = 0;
+    var cont = 1;
+    var ite = 1;
+    while (ite <= 10) {
+        ite++;
+        n_array[sw] = numero + (2 * cont);
+        sw++;
+        cont++;
+        if (numero + (2 * cont) === sw) {
+            return 'Se interrumpió la ejecución';
+            break;
+        }
+    }
+    return n_array;
 }
 
 
@@ -266,6 +299,22 @@ function continueStatement(numero) {
     //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
     //Pista: usá el statement 'continue'
     // Tu código:
+    var n_array = [];
+    var sw = 0;
+    var cont = 1;
+    var ite = 1;
+    while (ite <= 10) {
+        ite++;
+        if (ite !== 5) {
+            n_array[sw] = numero + (2 * cont);
+            sw++;
+            cont++;
+        } else {
+            continue;
+        }
+
+    }
+    return n_array;
 }
 
 
